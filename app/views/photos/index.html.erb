@@ -1,0 +1,23 @@
+<h1>Photographs</h1>
+<%= link_to 'New photograph', new_photo_path %>
+
+<table>
+  <tr>
+    <th>Caption<br />URL</th>
+    <th>Height</th>
+    <th>Width</th>
+  </tr>
+
+<% for photo in @photos %>
+  <tr>
+    <td><%=h photo.photo_caption %><br />
+    <%=h photo.photo_url %></td>
+    <td valign="top"><%=h photo.photo_height %></td>
+    <td valign="top"><%=h photo.photo_width %></td>
+    <td><%= link_to 'Show', photo %></td>
+    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+    <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

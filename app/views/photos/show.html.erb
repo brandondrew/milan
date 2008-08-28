@@ -1,0 +1,16 @@
+
+<img src="<%=h @photo.photo_url %>" title="<%=h @photo.photo_caption %>" alt="Photo with caption: <%=h @photo.photo_caption %>"/>
+<p>
+  <%=h @photo.photo_caption %>
+</p>
+<p>
+  <b>Photo url:</b>
+  <%=h @photo.photo_url %>
+<br />
+  <b>Photo dimensions:</b>
+  <%=h @photo.photo_height %> x <%=h @photo.photo_width %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
