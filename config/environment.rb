@@ -8,9 +8,11 @@
 RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 # used for date/calendar field
-ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
-  :default => '%B %d %Y'
-)
+# ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
+#   :default => '%B %d %Y'
+# )
+##### <<<<<<<  THIS MAKES SCRIPT/foobar FAIL  >>>>>>> #####
+
 
 
 # Bootstrap the Rails environment, frameworks, and default configuration
