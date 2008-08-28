@@ -1,0 +1,56 @@
+
+div#header{width:100%;overflow:hidden;background: #595D66}
+div#header h1,div#menu{width:770px;margin:0 auto;text-align:left}
+div#header h1{padding: 30px 0 10px;color: #FFF}
+
+ul#nav,ul#nav li{list-style-type:none;margin:0;padding:0}
+ul#nav{float:right;font-size: 80%}
+ul#nav li{float:left;margin-left: 3px;text-align: center}
+ul#nav a{float:left;width: 95px;padding: 5px 0;background: #369A3D;text-decoration:none;color: #FFC}
+ul#nav a:hover{background: #CDFFA1;color: #006A35}
+ul#nav li.activelink a,ul#nav li.activelink a:hover{background: #FFF;color: #003}
+
+div#container{width:770px;margin:0 auto 10px;padding:20px 0 10px;text-align:left;background:#FFF}
+div#content{float:left;display:inline;width:560px;margin:0 0 10px 10px}
+
+ul#breaking{width:100%;overflow:hidden;margin-bottom:20px;}
+ul#breaking li{float:left;background: #098765;}
+
+/* breaking news*/
+
+div#breaking div{background: #EEE;margin-bottom:10px}
+div#breaking p{padding: 10px;margin:0}
+div#breaking div.odd{background:#DAE6FE}
+
+ul#breaking,ul#breaking li{list-style-type:none;margin:0;padding:0}
+ul#breaking{width:100%;overflow:hidden;margin-bottom:20px}
+ul#breaking li{float:left;width:770px;margin-right:10px;padding: 10px 0;background: #586695}
+ul#breaking p,ul#intros h3{margin:0;padding: 0 10px}
+ul#breaking h3{text-transform:uppercase;padding-bottom:3px;color: #FFF}
+
+/* intros: sports, business, finance */
+ul#intros,ul#intros li{list-style-type:none;margin:0;padding:0}
+ul#intros{width:100%;overflow:hidden;margin-bottom:20px}
+ul#intros li{float:left;width:180px;margin-right:10px;padding: 10px 0}
+li#sports{background: #E65714}
+li#business{background: #42B4AC}
+ul#intros li#finance{margin-right:0;background: #7D63A9}
+ul#intros p,ul#intros h3{margin:0;padding: 0 10px}
+ul#intros h3{text-transform:uppercase;padding-bottom:3px;color: #FFF}
+
+div#content h2, div#content h2 input{margin: 10px 0;color: #007BC4}
+div.date{float:left;width: 4em;padding: 5px 0;background: #F1DDC4;color:#B0001E;
+    text-align:center;margin: 0 4px 4px 0;font-size: 80%;line-height:0.9}
+div.date span{display:block;font-size: 150%;font-weight:bold}
+
+div.comments div{background: #EEE;margin-bottom:10px}
+div.comments p{padding: 10px;margin:0}
+div.comments div.odd{background:#DAE6FE}
+
+div#side{float:right;display:inline;width: 180px;background:#F3CF00; margin:0 10px 10px 0}
+div#side p{margin:5px 0 10px;padding: 0 10px}
+div#side div{margin: 0 0 10px;padding: 10px 0}
+
+div#footer{clear:both;width:750px;margin:0 10px 0;padding: 10px 0;
+    background: #586695;color: #FFF;text-align:center}
+div#footer p{margin:0}

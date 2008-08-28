@@ -1,0 +1,50 @@
+
+/* general page formatting */
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 85%/1.3 "Helvetica Neue",Tahoma,Verdana,Helvetica,sans-serif;
+   text-align: center;
+	background: #757D88;
+	padding-bottom: 20px
+}
+
+p { margin-top:0 }
+
+h1,h2,h3,h1 input,h2 input,h3 input 
+			{ font: normal normal 200% "Trebuchet MS",Tahoma,Verdana,Helvetica,sans-serif }
+h2 		{ 	font-size:160% }
+h3 		{ 	font-size:120% }
+h1 input	{ 	font-size:160%; width: 99%; }
+h2 input	{ 	font-size:120%; width: 99%; }
+h3 input	{ 	font-size:100%; width: 99%; }
+
+
+/* story form */
+table.form 			{ width:100%; }
+input[type=text] 	{ width:99%; }
+textarea 			{ width:99%; }
+
+.by, .by input {
+	font-style:italic;
+	color:gray;
+}
+
+
+/* editor */
+div.preview {
+	height: 200px; 
+	overflow: scroll;
+	background: #EEE;
+	margin-bottom:10px;
+	background-image: url(/images/preview.png);
+}
+div.preview p {
+	padding: 10px;
+	margin:0
+}
+
+

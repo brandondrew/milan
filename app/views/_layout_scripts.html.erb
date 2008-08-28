@@ -1,0 +1,21 @@
+<!-- Layout -->
+<%= javascript_include_tag 'nifty' %>
+<!-- <script type="text/javascript" src="/javascripts/nifty.js"></script> -->
+<script type="text/javascript" charset="utf-8">
+  window.onload=function(){
+    /* round menu tabs at the top */
+    Nifty("div#menu a","small transparent top");
+    /* set all the intro blocks to the same height */
+    Nifty("ul#intros li","same-height");
+    /* calendar blocks */
+    Nifty("div.date");
+    /* make the two columns the same height! */
+    Nifty("div#content,div#side","same-height");
+    /* comments */
+    Nifty("div.comments div");
+    Nifty("div#footer");
+    Nifty("div#container","bottom");
+    Nifty("div#breaking div")
+  }
+</script>
+<!-- /Layout -->

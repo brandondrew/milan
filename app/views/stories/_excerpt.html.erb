@@ -1,0 +1,9 @@
+<!-- excerpt.html.erb -->
+<!-- <%=h @story.section %> -->
+<h2><%=h @story.title %></h2>
+<div class="date">August <span>20</span> 2008</div>
+<%= markdown(@story.extract) %>
+<a href="#"><span class="more">more &rarr;</span></a></p>
+
+<!-- <%= link_to 'Edit', edit_story_path(@story) %> <%= link_to 'Back', stories_path %> -->
+<!-- /excerpt.html.erb -->

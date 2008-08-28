@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Milan Community(/News)</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<!-- <link rel="stylesheet" type="text/css" href="/stylesheets/NiftyLayout.css" media="screen"> -->
+<%= stylesheet_link_tag 'layout.css' %>
+<%= stylesheet_link_tag 'calendar.css' %>
+<%= stylesheet_link_tag 'application.css' %>
+
+</head>
+<body>
+<div id="header">
+<h1>Milan <span>Community/News&trade;</span></h1>
+<div id="menu">
+<ul id="nav">
+<li id="home" class="activelink"><a href="#">Community</a></li>
+<li id="who"><a href="#">Sports</a></li>
+<li id="prod"><a href="#">Business</a></li>
+<li id="serv"><a href="#">Finance</a></li>
+<li id="cont"><a href="#">World</a></li>
+</ul>
+</div>
+</div>
+<div id="container">
+<div id="content">
+  <div id="breaking">
+  <div class="odd"><p>Three-headed martian eats Milan mayor for lunch, spits out bones.</p></div>
+  </div>
+  
+  
+<ul id="intros">
+<li id="sports"><h3>in Sports</h3><p>The American Cancer Society is gearing up for its annual Relay for Life events nationwide, and locally the event is scheduled for Sept. 13 at Wilson Park in Milan.	</p></li>
+<li id="business"><h3>in Business</h3><p>Open NewsWorks incorporates.  Heritage Newspapers decide to throw in the towel.  "The handwriting is on the web," says Heritage president.</p></li>
+<li id="finance"><h3>in Finance</h3><p>Dow-Jones and New York Stock Exchange Merge, and then split the next day, leaving the Dow York and New Jones exchanges. Observers blame computer error.</p></li>
+</ul>
+
+<%= yield %>
+
+
+</div><!-- /content -->
+
+<div id="side">
+  <div class="intros"><em><small>
+    <p>this column could contain shorter introductory excerpts from a wide variety of news stories.</p>
+    <p>This would allow us to put a lot of headlines on any one page, even if that page was showing the entirety of a news story in its main content area.</p>
+    <p>When we get fancier, these could be dependent on the story currently being read.  When we get fancier still, these could relate to the user's reading history, as well as the stories being read.</p>
+    </small></em>
+  </div>
+</div>
+
+<div id="footer">
+<p>All Content &copy; Copyright 2008 Milan Community LLC.</p>
+</div>
+
+</div>
+<%= javascript_include_tag 'calendar' %>
+<%= render :partial => '/editor_scripts' %>
+<%= render :partial => '/layout_scripts' %>
+</body>
+</html>

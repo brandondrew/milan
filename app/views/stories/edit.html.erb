@@ -1,0 +1,29 @@
+<!-- edit.html.erb   -->
+<% form_for(@story) do |f| %>
+  <%= f.error_messages %>
+
+<!-- <%=h @story.section %> -->
+  <table class="form" border="0" cellspacing="3" cellpadding="3">
+    <tr><td colspan=2><h2><%= f.text_field :title %></h2></td></tr>
+    <tr><td><%= render :partial => '/date_box' %></td><td><% the_date = Date::MONTHNAMES[@story.created_at.month], " ", @story.created_at.day, " ", @story.created_at.year %><!-- TODO! move the_date outside of view --><%= date_field('story', 'created_at', :value => the_date ) %></td></tr>
+    <tr><td colspan=2><div><%= f.text_area :body, :style => "width: 100%" %></div></td></tr>
+    <tr><td colspan=2><div class="wmd-preview preview"> </div></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    
+    <tr><td><span class="by">By</span></td><td><span class="by"><%= f.text_field :author %></span></td></tr>
+    <tr><td><%= f.label :section %></td><td><%= f.text_field :section %></td></tr>
+    <tr><td><%= f.label :extract %></td><td><%= f.text_field :extract %></td></tr>
+  </table>
+  
+  
+
+<!-- /edit.html.erb   -->
+
+  <p>
+    <%= f.submit "Update" %> &nbsp; 
+    <%= link_to 'Show', @story %> &nbsp; 
+    <%= link_to 'Back', stories_path %>
+  </p>
+<% end %>
+
