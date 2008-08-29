@@ -2,6 +2,7 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.xml
   def index
+    @sections = Section.find(:all)
     @stories = Story.find(:all)
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
+    @sections = Section.find(:all)    # TODO: refactor to DRY this out
     @story = Story.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.xml
   def new
+    @sections = Section.find(:all)
     @story = Story.new
 
     respond_to do |format|
@@ -34,6 +37,7 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
+    @sections = Section.find(:all)
     @story = Story.find(params[:id])
 
   end
@@ -41,6 +45,7 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.xml
   def create
+    @sections = Section.find(:all)
     @story = Story.new(params[:story])
 
     respond_to do |format|
@@ -58,6 +63,7 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
+    @sections = Section.find(:all)
     @story = Story.find(params[:id])
 
     respond_to do |format|
@@ -75,6 +81,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
+    @sections = Section.find(:all)
     @story = Story.find(params[:id])
     @story.destroy
 

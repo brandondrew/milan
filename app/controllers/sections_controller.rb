@@ -13,6 +13,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.xml
   def show
+    @sections = Section.find(:all)
     @section = Section.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +25,7 @@ class SectionsController < ApplicationController
   # GET /sections/new
   # GET /sections/new.xml
   def new
+    @sections = Section.find(:all)  # TODO: refactor so I don't have to repeat this all over the place
     @section = Section.new
 
     respond_to do |format|
@@ -34,12 +36,14 @@ class SectionsController < ApplicationController
 
   # GET /sections/1/edit
   def edit
+    @sections = Section.find(:all)
     @section = Section.find(params[:id])
   end
 
   # POST /sections
   # POST /sections.xml
   def create
+    @sections = Section.find(:all)
     @section = Section.new(params[:section])
 
     respond_to do |format|
@@ -57,6 +61,7 @@ class SectionsController < ApplicationController
   # PUT /sections/1
   # PUT /sections/1.xml
   def update
+    @sections = Section.find(:all)
     @section = Section.find(params[:id])
 
     respond_to do |format|
@@ -74,6 +79,7 @@ class SectionsController < ApplicationController
   # DELETE /sections/1
   # DELETE /sections/1.xml
   def destroy
+    @sections = Section.find(:all)
     @section = Section.find(params[:id])
     @section.destroy
 

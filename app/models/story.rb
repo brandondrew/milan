@@ -1,4 +1,7 @@
 class Story < ActiveRecord::Base
+  
+  belongs_to :section # section_id
+  
   has_many :photo_placements
   has_many :photos, :through => :photo_placements
   
