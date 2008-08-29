@@ -12,14 +12,9 @@
 <body>
 <div id="header">
 <h1>Milan <span>Community/News&trade;</span></h1>
-<div id="menu">
-<ul id="nav">
-<li id="home_tab" class="activelink"><a href="/community">Community</a></li>
-<li id="sports_tab"><a href="/sports">Sports</a></li>
-<li id="business_tab"><a href="/business">Business</a></li>
-<li id="world_tab"><a href="/world">World</a></li>
-</ul>
-</div>
+
+<%= render :partial => '/navigation_tabs' %>
+
 </div>
 <div id="container">
 <div id="content">
@@ -53,6 +48,8 @@
 </div>
 
 </div>
+<!-- prototype/scriptaculous currently used only for auto-completing -->
+<%= javascript_include_tag :defaults %>
 <%= javascript_include_tag 'calendar' %>
 <%= render :partial => '/editor_scripts' %>
 <%= render :partial => '/layout_scripts' %>

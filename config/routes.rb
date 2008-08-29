@@ -1,4 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+
+  # map.sections 'sections/:id', :controller => "sections", :action => "index"
+
+  map.resources :sections do |sections|
+    sections.resources :stories
+  end
+
   map.resources :photos
 
   map.resources :stories
