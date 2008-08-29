@@ -9,6 +9,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+# WHOOPS!  I named a field "extract" that should be "excerpt"... will change this soon... TODO
+
 ActiveRecord::Schema.define(:version => 20080829052346) do
 
   create_table "photo_placements", :force => true do |t|

@@ -10,8 +10,10 @@ class Section < ActiveRecord::Base
     end
   end
   
-  def highlight_tab
-    if self == @section # ???? TODO: get this working so I can highlight one link
+  def highlight_tab   # NOT WORKING.  once I get this working use <%= section.highlight_tab %> in the view
+    # smelly workaround for now: <% if @section == section %> class="activelink" <% end %> 
+    # TODO: refactor
+    if self == @section 
       'class="activelink"'
     end
   end

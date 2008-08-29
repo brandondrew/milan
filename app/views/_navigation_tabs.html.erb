@@ -2,8 +2,9 @@
 <div id="menu">
   <ul id="nav">
   <% for section in @sections %>
-    <li id="<%=h section.name.downcase %>_tab" <%= section.highlight_tab %>><a href="/<%=h section.name.downcase %>"><%=h section.name %></a></li>
+    <li id="<%=h section.name.downcase %>_tab"<% if @section == section %> class="activelink" <% end %>><a href="/sections/<%=h section.tab_position.to_s %>"><%=h section.name %></a></li>
   <% end %>
   </ul>
+  Current Section: <%= @section.name %>
 </div>
 <!-- /section navigation menu -->
