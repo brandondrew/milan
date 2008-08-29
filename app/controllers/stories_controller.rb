@@ -1,4 +1,9 @@
 class StoriesController < ApplicationController
+
+  # auto_complete_for :story, :author
+  # auto_complete_for :story, :section
+
+
   # GET /stories
   # GET /stories.xml
   def index

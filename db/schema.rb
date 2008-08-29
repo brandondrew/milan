@@ -9,16 +9,49 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080820063022) do
+ActiveRecord::Schema.define(:version => 20080829052346) do
+
+  create_table "photo_placements", :force => true do |t|
+    t.integer  "photo_id"
+    t.integer  "story_id"
+    t.integer  "display_height"
+    t.integer  "display_width"
+    t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "photo_url"
+    t.string   "photo_caption"
+    t.integer  "photo_height"
+    t.integer  "photo_width"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "tab_position"
+    t.boolean  "is_tab"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stories", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.string   "section"
     t.string   "author"
-    t.string   "extract"
+    t.string   "intro"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "publish_at"
+    t.boolean  "published"
+    t.datetime "published_at"
+    t.text     "extract"
+    t.boolean  "is_breaking"
+    t.integer  "section_id"
   end
 
 end
