@@ -1,0 +1,9 @@
+<!-- section navigation menu -->
+<div id="menu">
+  <ul id="nav">
+  <% for section in @sections %>
+    <li id="<%=h section.name.downcase %>_tab" <%= section.highlight_tab %>><a href="/<%=h section.name.downcase %>"><%=h section.name %></a></li>
+  <% end %>
+  </ul>
+</div>
+<!-- /section navigation menu -->

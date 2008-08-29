@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  tab_position: 1
+  is_tab: false
+
+two:
+  name: MyString
+  tab_position: 1
+  is_tab: false
