@@ -14,25 +14,24 @@
 <h1>Milan <span>Community/News&trade;</span></h1>
 <div id="menu">
 <ul id="nav">
-<li id="home" class="activelink"><a href="#">Community</a></li>
-<li id="who"><a href="#">Sports</a></li>
-<li id="prod"><a href="#">Business</a></li>
-<li id="serv"><a href="#">Finance</a></li>
-<li id="cont"><a href="#">World</a></li>
+<li id="home_tab" class="activelink"><a href="/community">Community</a></li>
+<li id="sports_tab"><a href="/sports">Sports</a></li>
+<li id="business_tab"><a href="/business">Business</a></li>
+<li id="world_tab"><a href="/world">World</a></li>
 </ul>
 </div>
 </div>
 <div id="container">
 <div id="content">
   <div id="breaking">
-  <div class="odd"><p>Three-headed martian eats Milan mayor for lunch, spits out bones.</p></div>
+  <div class="odd"><p><%= @breaking_news_headline %></p></div>
   </div>
   
   
 <ul id="intros">
-<li id="sports"><h3>in Sports</h3><p>The American Cancer Society is gearing up for its annual Relay for Life events nationwide, and locally the event is scheduled for Sept. 13 at Wilson Park in Milan.	</p></li>
-<li id="business"><h3>in Business</h3><p>Open NewsWorks incorporates.  Heritage Newspapers decide to throw in the towel.  "The handwriting is on the web," says Heritage president.</p></li>
-<li id="finance"><h3>in Finance</h3><p>Dow-Jones and New York Stock Exchange Merge, and then split the next day, leaving the Dow York and New Jones exchanges. Observers blame computer error.</p></li>
+<li class="sports"><h3>in Sports</h3><p><%= @sports_selection_intro %></p></li>
+<li class="business"><h3>in Business</h3><p><%= @business_selection_intro %></p></li>
+<li class="world"><h3>in World News</h3><p><%= @world_selection_intro %></p></li>
 </ul>
 
 <%= yield %>
