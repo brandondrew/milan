@@ -1,0 +1,27 @@
+<% form_for(@story) do |f| %>
+  <%= f.error_messages %>
+
+<!-- <%=h @story.section %> -->
+  <table class="form" border="0" cellspacing="3" cellpadding="3">
+    <tr><td colspan=2><h2><%= f.text_field :title %></h2></td></tr>
+    <tr><td colspan=2><div class="wmd-preview"></div></td></tr>
+    <tr><td colspan=2><div><%= f.text_area :body, :style => "width: 100%; height: 8.4em" %></div></td></tr>
+    <tr><td><span class="by">By</span></td><td><span class="by"><%= f.text_field :author %></span></td></tr>
+    <tr><td>Publish on</td><td><%= date_field('story', 'publish_at', :value => @display_date_string ) %></td></tr>
+    <tr><td><%= f.label :section %></td><td><%= f.text_field :section %></td></tr>
+    <tr><td><%= f.label :intro %></td><td><%= f.text_area :intro, :style => "height: 2.4em;"%></td></tr>
+    <tr><td><%= f.label :extract %></td><td><%= f.text_area :extract, :style => "height: 5.9em;" %></td></tr>
+    <tr><td><%= f.label :is_breaking %></td><td><%= f.check_box :is_breaking %></td></tr>
+  </table>
+  
+  <p>
+    <%= f.submit "Update" %> &nbsp; 
+    <!-- bad form ... TODO: refactor this later, moving if/then logic outside of the view (a presenter, maybe?) -->
+    <!-- bad form... TODO: refactor later -->
+    <% if @view_mode == :edit %>
+      <%= link_to 'Show', @story %> &nbsp; 
+    <% end %>
+    <!-- /end bad form -->
+    <%= link_to 'Back', stories_path %>
+  </p>
+<% end %>

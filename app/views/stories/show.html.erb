@@ -1,7 +1,7 @@
 <!-- story.html.erb   -->
 <!-- <%=h @story.section %> -->
 <h2><%=h @story.title %></h2>
-<%= render :partial => '/date_box' %>
+<%= render :partial => 'date_box' %>
 
 <%=markdown(@story.body) %>
 <div class="by">By <%=h @story.author %></div>

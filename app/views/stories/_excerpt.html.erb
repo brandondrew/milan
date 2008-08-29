@@ -1,7 +1,7 @@
 <!-- excerpt.html.erb -->
 <!-- <%=h @story.section %> -->
 <h2><%=h @story.title %></h2>
-<div class="date">August <span>20</span> 2008</div>
+<%= render :partial => 'date_box' %>
 <%= markdown(@story.extract) %>
 <a href="#"><span class="more">more &rarr;</span></a></p>
 

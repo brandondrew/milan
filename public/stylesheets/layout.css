@@ -28,13 +28,13 @@ ul#breaking li{float:left;width:770px;margin-right:10px;padding: 10px 0;backgrou
 ul#breaking p,ul#intros h3{margin:0;padding: 0 10px}
 ul#breaking h3{text-transform:uppercase;padding-bottom:3px;color: #FFF}
 
-/* intros: sports, business, finance */
+/* intros: sports, business, world news */
 ul#intros,ul#intros li{list-style-type:none;margin:0;padding:0}
 ul#intros{width:100%;overflow:hidden;margin-bottom:20px}
 ul#intros li{float:left;width:180px;margin-right:10px;padding: 10px 0}
-li#sports{background: #E65714}
-li#business{background: #42B4AC}
-ul#intros li#finance{margin-right:0;background: #7D63A9}
+#intros li.sports{background: #E65714}
+#intros li.business{background: #42B4AC}
+#intros li.world{margin-right:0;background: #7D63A9}
 ul#intros p,ul#intros h3{margin:0;padding: 0 10px}
 ul#intros h3{text-transform:uppercase;padding-bottom:3px;color: #FFF}
 
