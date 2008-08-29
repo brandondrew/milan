@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="/en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Markdown Help</title>
+  <!-- date: Thu Aug 28 18:20:16 EDT 2008 -->
+  <style type="text/css" media="screen">
+    body {
+      background-color: #ededdb;
+      margin: 75px auto;
+      padding: 0 15%;
+    }
+    body, p {
+      font-family: "Helvetica Neue", Tahoma, Verdana, Helvetica, sans-serif; 
+      text-align: justify;
+      text-justify: newspaper;
+    }
+    
+    p.intro {
+      font-size: 120%;
+    }
+    .markdown {
+      font-family: "Courier New", Monaco, Courier;
+      font-size: 95%;
+      padding-bottom: 25px;
+    }
+    .rendered {
+      background-color: white;
+      padding-bottom: 25px;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
+
+
+<p class="intro">You are using an editor designed to transform plain text into valid HTML that will conform to the design of the site.  You'll see the plain text in the text area, with a preview of how it will look when changed to HTML.  You can style your text either with the buttons on the tool bar (as if you were using a word processor) or by using some simple conventions collectively known as <em>Markdown</em>.</p>
+
+<h2 id="markdown_help">Markdown Help</h2>
+
+<table border="0" cellspacing="0" cellpadding="5" width="100%">
+  <!-- most browsers don't support COL very well, so I'm going to have to be WET and put the class in all the cells -->
+  <!-- additionally, my use of colspan on the directions cells might not always play well with COL and COLGROUP -->
+  <tr><td colspan=3>Mark things for emphasis by putting asterisks around a word or phrase.  (This is normally rendered in italics.)</td></tr>
+  <tr><td class="markdown">*This* word will be emphasized.</td><td>&rarr;</td><td class="rendered"><em>This</em> word will be emphasized.</td></tr>
+
+  <tr><td colspan=3>Make text stand out (usually in bold letters) by putting double asterisks around it.</td></tr>
+  <tr><td class="markdown">**This** word will be strong.</td><td>&rarr;</td><td class="rendered"><strong>This</strong> word will be strong.</td></tr>
+  
+  <tr><td colspan=3>To start a new paragraph, simply enter two carriage returns where you want to separate the paragraphs.</td></tr>
+  <tr><td class="markdown"><p>This is one paragraph.</p><p>This is another paragraph.</p></td><td>&rarr;</td><td class="rendered"><p>This is one paragraph.</p><p>This is another paragraph.</p></td></tr>
+  
+  <tr><td colspan=3>To create a bulleted list, simply put asterisks before the text, with each bullet at the beginning of a new line, and followed by 3 spaces.</td></tr>
+  <tr><td class="markdown">*   This is item # 1<br/ >*   This is item # 2</td><td>&rarr;</td><td class="rendered"><ul><li>This is item #1</li><li>This is item #2</li></ul></td></tr>
+  
+  <tr><td colspan=3>Create a numbered list exactly how you would expect.</td></tr>
+  <tr><td class="markdown">1   This is the first item.<br/ >2   This is the second</td><td>&rarr;</td><td class="rendered"><ol><li>This is the first item</li><li>This is the second item</li></ol></tr>
+</table>
+
+<p>For lots of gory details, see <a href="http://daringfireball.net/projects/markdown/syntax">the official documentation for Markdown</a></p>
