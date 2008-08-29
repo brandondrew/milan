@@ -18,6 +18,11 @@
     <%= f.text_field :photo_height %>
   </p>
     <%= f.submit "Save" %>
+  <% if @view_mode == :edit %>
+    <%= link_to 'Show', @photo %> &nbsp;
+  <% end %>
+  <%= link_to 'Back', photos_path %>
+
 <% end %>
 
-<%= link_to 'Back', photos_path %>
+

@@ -1,5 +1,4 @@
 <img src="<%=h @photo.photo_url %>" />
 
+<% @view_mode = :edit %><!-- okay, not good form... TODO: refactor... -->
 <%= render :partial => 'form' %>
-
-&nbsp; <%= link_to 'Show', @photo %>
