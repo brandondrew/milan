@@ -1,40 +1,10 @@
-    <ul>
-      <li class="even class">
-<div class="header"><h2><a class="class-link" href="/forums"><!-- Stories --></a></h2></div>
-<div class="section">
-
-
-
-<% for story in @stories %>
-
-<div class="card forum">
-  <div class="summary">
-    <a class="forum-link" href="<%# story %>"><span class="view string forum-title" hobo-model-id="forum_3_title"><%=h story.title %></span></a>
-
-    <span class="count">1 topic, 2 posts</span>
-    <span class="view text forum-description" hobo-model-id="forum_3_description"><%=h story.extract %></span>
-  </div>
-  <div class="latest-post">
-      Latest Post
-<a class="forum-topic-link" href="/forum_topics/22">
-  28 days ago<br/> by <%=h story.author %>
-</a>
-  </div>
-</div>
+<!-- excerpts -->
+<% for @story in @stories %><!-- this @story instead of story so that other code (used outside of loops like this) will work:  I'm not sure if this creates any problems... -->
+  <!-- excerpt.html.erb -->
+  <h2><%= link_to h(@story.title), story_path(@story) %></h2>
+  <%= render :partial => 'date_box' %>
+  <%= markdown(@story.extract) %>
+  <a href="<%= story_path(@story) %>"><span class="more">... more &rarr;</span></a></p>
+  <!-- /excerpt.html.erb -->
 <% end %>
-
-<%= link_to 'New story', new_story_path %>
-
-          <p><a class="class-link" href="/forums">More</a> (4 Stories)</p>
-      </div>
-    </li>
-    </ul>
-
-
-
-  
-
-  
-  
-
-
+<!-- /excerpts -->

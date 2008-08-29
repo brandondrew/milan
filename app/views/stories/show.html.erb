@@ -3,7 +3,7 @@
 <h2><%=h @story.title %></h2>
 <%= render :partial => 'date_box' %>
 
-<%=markdown(@story.body) %>
+<%= markdown(@story.body) %>
 <div class="by">By <%=h @story.author %></div>
 
 <!-- <%= link_to 'Edit', edit_story_path(@story) %> <%= link_to 'Back', stories_path %> -->

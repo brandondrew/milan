@@ -15,19 +15,6 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
 
-    # TODO: REFACTOR------------------------------
-    # set the display date
-    if @story.publish_at.nil?
-      @display_date = @story.created_at
-    else
-      @display_date = @story.publish_at
-    end
-    @display_date_string = Date::MONTHNAMES[@display_date.month], " ", @display_date.day, " ", @display_date.year
-    # display_date_string sounds redundant: you'd think display_date was already a string, since you're going to display it, no?
-    # but of course the "display" part of display_date is because it's going to be used to display either the creation date or the publishing date.
-    # maybe I should change display_date to something else, and then change display_date_string as well, to avoid confusion
-    #---------------------------------------------
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @story }
@@ -48,19 +35,6 @@ class StoriesController < ApplicationController
   # GET /stories/1/edit
   def edit
     @story = Story.find(params[:id])
-
-    # TODO: REFACTOR------------------------------
-    # set the display date
-    if @story.publish_at.nil?
-      @display_date = @story.created_at
-    else
-      @display_date = @story.publish_at
-    end
-    @display_date_string = Date::MONTHNAMES[@display_date.month], " ", @display_date.day, " ", @display_date.year
-    # display_date_string sounds redundant: you'd think display_date was already a string, since you're going to display it, no?
-    # but of course the "display" part of display_date is because it's going to be used to display either the creation date or the publishing date.
-    # maybe I should change display_date to something else, and then change display_date_string as well, to avoid confusion
-    #---------------------------------------------
 
   end
 

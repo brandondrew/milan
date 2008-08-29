@@ -1,9 +1,6 @@
 <!-- excerpt.html.erb -->
-<!-- <%=h @story.section %> -->
-<h2><%=h @story.title %></h2>
+<h2><%= link_to h @story.title, story_path(@story) %></h2>
 <%= render :partial => 'date_box' %>
 <%= markdown(@story.extract) %>
-<a href="#"><span class="more">more &rarr;</span></a></p>
-
-<!-- <%= link_to 'Edit', edit_story_path(@story) %> <%= link_to 'Back', stories_path %> -->
+<a href="#"><span class="more">... more &rarr;</span></a></p>
 <!-- /excerpt.html.erb -->

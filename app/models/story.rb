@@ -14,5 +14,21 @@ class Story < ActiveRecord::Base
                   # but the idea of the field name not being past tense is that it is FORWARD-LOOKING
                   
                   
+
+  def display_date
+    if self.publish_at.nil?
+      self.created_at
+    else
+      self.publish_at
+    end
+  end
   
+  def display_year; end
+  def display_month; end
+  def display_day; end
+  
+  def display_date_string 
+    Date::MONTHNAMES[display_date.month] + " " + display_date.day.to_s + " " + display_date.year.to_s
+  end
+    
 end
