@@ -1,7 +1,7 @@
 <!-- excerpts -->
 <% for @story in @stories %><!-- this @story instead of story so that other code (used outside of loops like this) will work:  I'm not sure if this creates any problems... -->
   <!-- excerpt.html.erb -->
-  <h2><%= link_to h(@story.title), story_path(@story) %></h2>
+  <h2><%= @story.title %></h2>
   <%= render :partial => 'date_box' %>
   <%= markdown(@story.extract) %>
   <a href="<%= story_path(@story) %>"><span class="more">... more &rarr;</span></a></p>

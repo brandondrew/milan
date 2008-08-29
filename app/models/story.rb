@@ -22,13 +22,18 @@ class Story < ActiveRecord::Base
       self.publish_at
     end
   end
-  
-  def display_year; end
-  def display_month; end
-  def display_day; end
-  
+  # NOTE: display_date is a DATE, the others are STRINGS
+  def display_year
+    display_date.year.to_s
+  end
+  def display_month
+    Date::MONTHNAMES[display_date.month]
+  end
+  def display_day
+    display_date.day.to_s
+  end  
   def display_date_string 
-    Date::MONTHNAMES[display_date.month] + " " + display_date.day.to_s + " " + display_date.year.to_s
+    display_month + " " + display_day + " " + display_year
   end
     
 end
