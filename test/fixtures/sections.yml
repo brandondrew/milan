@@ -1,11 +1,21 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
 
 one:
-  name: MyString
+  name: Community
   tab_position: 1
-  is_tab: false
+  is_tab: true
 
 two:
-  name: MyString
-  tab_position: 1
-  is_tab: false
+  name: Sports
+  tab_position: 2
+  is_tab: true
+
+three:
+  name: Business
+  tab_position: 3
+  is_tab: true
+
+four:
+  name: World
+  tab_position: 4
+  is_tab: true
