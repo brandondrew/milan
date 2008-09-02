@@ -1,13 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>Milan Community(/News)</title>
+<title>Milan Community(/News) :: <%= yield :title %></title>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<!-- <link rel="stylesheet" type="text/css" href="/stylesheets/NiftyLayout.css" media="screen"> -->
 <%= stylesheet_link_tag 'layout.css' %>
 <%= stylesheet_link_tag 'calendar.css' %>
 <%= stylesheet_link_tag 'application.css' %>
-
 </head>
 <body>
 <div id="header">
@@ -18,15 +16,17 @@
 </div>
 <div id="container">
 <div id="content">
+  <%= render :partial => '/flash_messages' %>
+  
   <div id="breaking">
-  <div class="odd"><p><%= @breaking_news_headline %></p></div>
+  <div class="odd"><p><%= link_to breaking_story.title, breaking_story %></p></></div>
   </div>
   
   
 <ul id="intros">
-<li class="sports"><h3>in Sports</h3><p><%= @sports_selection_intro %></p></li>
-<li class="business"><h3>in Business</h3><p><%= @business_selection_intro %></p></li>
-<li class="world"><h3>in World News</h3><p><%= @world_selection_intro %></p></li>
+<li class="sports"><h3>in Sports</h3><p><%= selection_intro('business') %></p></li>
+<li class="business"><h3>in Business</h3><p><%= selection_intro('sports') %></p></li>
+<li class="world"><h3>in World News</h3><p><%= selection_intro('sports') %></p></li>
 </ul>
 
 <%= yield %>
@@ -48,7 +48,7 @@
 </div>
 
 </div>
-<!-- prototype/scriptaculous currently used only for auto-completing -->
+<!-- prototype/scriptaculous currently used only for auto-completing: switch to jQuery later... -->
 <%= javascript_include_tag :defaults %>
 <%= javascript_include_tag 'calendar' %>
 <%= render :partial => '/editor_scripts' %>
