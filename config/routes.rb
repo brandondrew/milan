@@ -2,9 +2,13 @@ ActionController::Routing::Routes.draw do |map|
 
   # map.sections 'sections/:id', :controller => "sections", :action => "index"
 
-  map.resources :sections do |sections|
-    sections.resources :stories
-  end
+  map.root :controller => 'sections'
+  
+  # map.resources :sections do |sections|
+  #   sections.resources :stories
+  # end
+  map.resources :sections, :has_many => :stories
+
   # map.resources :sections
   # in the future I want URLs like:
   # /sports/harbor-springs-rams-enter-world-series

@@ -1,4 +1,5 @@
 class StoriesController < ApplicationController
+  before_filter :load_section
   before_filter :authorize, :except => [:index, :show]
 
   # FAILING:
@@ -9,7 +10,13 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.xml
   def index
-    @stories = Story.find(:all)
+    # @stories = Story.find(:all)
+    # I want to allow accessing stories both directly and through the section, like so:
+    # milancommunity.com/sports/local-athletes-playing-in-ncaa
+    # milancommunity.com/local-athletes-playing-in-ncaa
+    # but I'm not sure how to do that here, so I'll just go with doing it through sections for now
+    # maybe just: if there's no section, then @stories = Story.find(:all)....  ok later I'll try that
+    @stories = @section.stories.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +27,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
-    @story = Story.find(params[:id])
+    # @story = Story.find(params[:id])
+    @story = @section.stories.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -31,7 +39,8 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.xml
   def new
-    @story = Story.new
+    # @story = Story.new
+    @story = @section.stories.build  # ???
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,14 +50,15 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])
+    @story = @section.stories.find(params[:id])
     # shouldn't there be a respond_to block here????? 
   end
 
   # POST /stories
   # POST /stories.xml
   def create
-    @story = Story.new(params[:story])
+    # @story = Story.new(params[:story])
+    @story = @section.stories.build(params[:story])
 
     respond_to do |format|
       if @story.save
@@ -65,7 +75,8 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
-    @story = Story.find(params[:id])
+    # @story = Story.find(params[:id])
+    @story = @section.stories.find(params[:id])
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
@@ -82,7 +93,8 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
-    @story = Story.find(params[:id])
+    # @story = Story.find(params[:id])
+    @story = @section.stories.find(params[:id])
     @story.destroy
 
     respond_to do |format|
@@ -90,6 +102,14 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+
+
+  def load_section
+    @post = Post.find(params[:post_id])
+  end
+
   
   ####################################################################################
   protected
@@ -97,7 +117,7 @@ class StoriesController < ApplicationController
   #########  but for some reason Rails is complaining they are undefined... ?$%&*@#%!
   #########  TODO: debug why the stories controller has no access to global helpers
   def admin?
-    # this will do for now... obviously not robust enough for production...
+    # this will do for now... obviously not robust enough for production!...
     request.remote_ip == "127.0.0.1"
   end
   
@@ -111,8 +131,6 @@ class StoriesController < ApplicationController
   
   
   ####################################################################################
-  
-  
   
   
 end
