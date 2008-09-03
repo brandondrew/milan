@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   #   sections.resources :stories
   # end
   map.resources :sections, :has_many => :stories
-
+  
   # map.resources :sections
   # in the future I want URLs like:
   # /sports/harbor-springs-rams-enter-world-series
