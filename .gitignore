@@ -9,3 +9,4 @@ data.dump
 # config/database.yml
 *~
 proceedcake*
+db/test.sqlite3
