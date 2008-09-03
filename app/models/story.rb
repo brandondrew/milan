@@ -1,6 +1,6 @@
 class Story < ActiveRecord::Base
   
-  #belongs_to :section # section_id
+  # belongs_to :section # section_id
   # TODO: uncomment the line above... it currently causes a problem saving stories.  the error message is
   # Section(#31380870) expected, got String(#113650)
   

@@ -1,10 +1,13 @@
-<!-- excerpts -->
-<% for @story in @stories %><!-- this @story instead of story so that other code (used outside of loops like this) will work:  I'm not sure if this creates any problems... -->
+<% for @story in @stories %>
   <!-- excerpt.html.erb -->
   <h2><%= @story.title %></h2>
   <%= render :partial => 'date_box' %>
   <%= markdown(@story.extract) %>
-  <a href="<%= story_path(@story) %>"><span class="more">... more &rarr;</span></a></p>
-  <!-- /excerpt.html.erb -->
+  <a href="<%= story_path(@story) %>"><span class="more">... more &rarr;</span></a>
+  <% if admin? %>
+    <%= link_to 'Show', @story %>
+    <%= link_to 'Edit', edit_story_path(@story) %>
+    <%= link_to 'Destroy', @story, :confirm => 'Are you sure?', :method => :delete %>
+  <% end %>  
+  </p>
 <% end %>
-<!-- /excerpts -->

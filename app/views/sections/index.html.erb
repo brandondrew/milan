@@ -1,8 +1,16 @@
+
+<% if admin? %><%= link_to 'New section', new_section_path %><% end %>
+
 <table>
   <tr>
     <th></th>
     <th>Section</th>
     <th>Tab?</th>
+    <% if admin? %>
+    <th></th>
+    <th></th>
+    <th></th>
+    <% end %>
   </tr>
 
 <!-- TODO: give each section a description, and show the section name, description, and a selection of stories for each section on this page -->
@@ -13,13 +21,13 @@
     <td><%=h section.tab_position %></td>
     <td><%=h section.name %></td>
     <td><%= section.is_tab_check %></td>
+    <% if admin? %>
     <td><%= link_to 'Show', section %></td>
     <td><%= link_to 'Edit', edit_section_path(section) %></td>
     <td><%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New section', new_section_path %>

@@ -11,6 +11,20 @@ ActionController::Routing::Routes.draw do |map|
   # /business/apple-ditches-att-for-verizon-and-sprint
   
   
+  # date-based routes:
+  # /2008/04/01
+  # /2008/04/
+  # /2008
+  # map.connect 'stories/:year/:month/:day', :controller => 'stories', 
+    # :month => nil, :day => nil, :requirements => { :year => /\d{4}/ }
+  # add something like this to index action:
+  # @stories = Story.by_date(params[:year], params[:month], params[:day])
+  
+  
+  # /world/2008/04/01
+  # /world/ etc.
+  
+  
   
   map.resources :photos
 

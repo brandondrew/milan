@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
+  before_filter :authorize, :except => [:index, :show]
 
+  # FAILING:
   # auto_complete_for :story, :author
   # auto_complete_for :story, :section
 
@@ -7,7 +9,6 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.xml
   def index
-    @sections = Section.find(:all)
     @stories = Story.find(:all)
 
     respond_to do |format|
@@ -19,7 +20,6 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
-    @sections = Section.find(:all)    # TODO: refactor to DRY this out
     @story = Story.find(params[:id])
 
     respond_to do |format|
@@ -31,7 +31,6 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.xml
   def new
-    @sections = Section.find(:all)
     @story = Story.new
 
     respond_to do |format|
@@ -42,15 +41,13 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @sections = Section.find(:all)
     @story = Story.find(params[:id])
-
+    # shouldn't there be a respond_to block here????? 
   end
 
   # POST /stories
   # POST /stories.xml
   def create
-    @sections = Section.find(:all)
     @story = Story.new(params[:story])
 
     respond_to do |format|
@@ -68,7 +65,6 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
-    @sections = Section.find(:all)
     @story = Story.find(params[:id])
 
     respond_to do |format|
@@ -86,7 +82,6 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
-    @sections = Section.find(:all)
     @story = Story.find(params[:id])
     @story.destroy
 
@@ -95,4 +90,29 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  ####################################################################################
+  protected
+  #########  I shouldn't need these since they're already in application_helper.rb, 
+  #########  but for some reason Rails is complaining they are undefined... ?$%&*@#%!
+  #########  TODO: debug why the stories controller has no access to global helpers
+  def admin?
+    # this will do for now... obviously not robust enough for production...
+    request.remote_ip == "127.0.0.1"
+  end
+  
+  def authorize
+    unless admin?
+      flash[:error] = "Unauthorized access"
+      redirect_to index
+      false
+    end
+  end
+  
+  
+  ####################################################################################
+  
+  
+  
+  
 end

@@ -1,5 +1,6 @@
-<!-- it would be nice if HTML allowed putting titles in the body:
-<title><%=h @section.name %></title> -->
+<% content_for :title do %>
+  <%=h @section.name %>
+<% end %>
 
 <!-- <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>

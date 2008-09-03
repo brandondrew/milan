@@ -2,7 +2,6 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.xml
   def index
-    @sections = Section.find(:all)
     @photos = Photo.find(:all)
 
     respond_to do |format|
@@ -14,7 +13,6 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.xml
   def show
-    @sections = Section.find(:all)    # TODO : refactor so I don't repeat myself so much!
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +24,6 @@ class PhotosController < ApplicationController
   # GET /photos/new
   # GET /photos/new.xml
   def new
-    @sections = Section.find(:all)
     @photo = Photo.new
 
     respond_to do |format|
@@ -37,14 +34,12 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
-    @sections = Section.find(:all)
     @photo = Photo.find(params[:id])
   end
 
   # POST /photos
   # POST /photos.xml
   def create
-    @sections = Section.find(:all)
     @photo = Photo.new(params[:photo])
 
     respond_to do |format|
@@ -62,7 +57,6 @@ class PhotosController < ApplicationController
   # PUT /photos/1
   # PUT /photos/1.xml
   def update
-    @sections = Section.find(:all)
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
@@ -80,7 +74,6 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.xml
   def destroy
-    @sections = Section.find(:all)
     @photo = Photo.find(params[:id])
     @photo.destroy
 

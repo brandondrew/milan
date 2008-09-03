@@ -15,6 +15,12 @@ class SectionsController < ApplicationController
   def show
     @sections = Section.find(:all)
     @section = Section.find(params[:id])
+    @breaking_story  ||= Story.find(:first, 
+                                    :conditions => ['is_breaking = ? and published = ?', true, true], 
+                                    :order => 'publish_at DESC')
+
+
+
 
     respond_to do |format|
       format.html # show.html.erb
