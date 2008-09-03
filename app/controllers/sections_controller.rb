@@ -14,7 +14,8 @@ class SectionsController < ApplicationController
   # GET /sections/1.xml
   def show
     @sections = Section.find(:all)
-    @section = Section.find(params[:id])
+    params[:section_id] ||= params[:id]  # kludgey workaround: for some reason :section_id is getting lost and its value put into :id:
+    @section = Section.find(params[:section_id])
     @breaking_story  ||= Story.find(:first, 
                                     :conditions => ['is_breaking = ? and published = ?', true, true], 
                                     :order => 'publish_at DESC')
@@ -43,7 +44,7 @@ class SectionsController < ApplicationController
   # GET /sections/1/edit
   def edit
     @sections = Section.find(:all)
-    @section = Section.find(params[:id])
+    @section = Section.find(params[:section_id])
   end
 
   # POST /sections
@@ -68,7 +69,7 @@ class SectionsController < ApplicationController
   # PUT /sections/1.xml
   def update
     @sections = Section.find(:all)
-    @section = Section.find(params[:id])
+    @section = Section.find(params[:section_id])
 
     respond_to do |format|
       if @section.update_attributes(params[:section])
@@ -86,7 +87,7 @@ class SectionsController < ApplicationController
   # DELETE /sections/1.xml
   def destroy
     @sections = Section.find(:all)
-    @section = Section.find(params[:id])
+    @section = Section.find(params[:section_id])
     @section.destroy
 
     respond_to do |format|

@@ -4,10 +4,14 @@
 <!-- story.html.erb   -->
 <!-- <%=h @story.section %> -->
 <h2><%=h @story.title %></h2>
-<%= render :partial => 'date_box' %>
-
+<%= render :partial => 'date_box',
+  :locals => { :story => @story }%>
+  
 <%= markdown(@story.body) %>
 <div class="by">By <%=h @story.author %></div>
 
-<!-- <%= link_to 'Edit', edit_story_path(@story) %> <%= link_to 'Back', stories_path %> -->
+<% if admin? %>
+  <%= link_to 'Edit', [:edit, @section, @story] %> &nbsp;
+  <%= link_to 'Back', section_stories_path(@section) %>
+<% end %>
 <!-- /story.html.erb   -->

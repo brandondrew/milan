@@ -18,15 +18,16 @@
 <div id="content">
   <%= render :partial => '/flash_messages' %>
   
+  
   <div id="breaking">
-  <div class="odd"><p><%= link_to breaking_story.title, breaking_story %></p></></div>
+  <div class="odd"><p><%= link_to breaking_story.title, [breaking_story.section, breaking_story] %></p></></div>
   </div>
   
   
 <ul id="intros">
-<li class="sports"><h3>in Sports</h3><p><%= selection_intro('business') %></p></li>
-<li class="business"><h3>in Business</h3><p><%= selection_intro('sports') %></p></li>
-<li class="world"><h3>in World News</h3><p><%= selection_intro('sports') %></p></li>
+<li class="sports"><h3>in Sports</h3><p><%= selection_intro('Sports') %></p></li>
+<li class="business"><h3>in Business</h3><p><%= selection_intro('Business') %></p></li>
+<li class="world"><h3>in World News</h3><p><%= selection_intro('World') %></p></li>
 </ul>
 
 <%= yield %>

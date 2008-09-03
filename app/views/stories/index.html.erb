@@ -1,13 +1,14 @@
-<% for @story in @stories %>
+<!-- TODO: change from @story to story... don't remember why i did that... working around some bug??? -->
+<% for story in @stories %>
   <!-- excerpt.html.erb -->
-  <h2><%= @story.title %></h2>
-  <%= render :partial => 'date_box' %>
-  <%= markdown(@story.extract) %>
-  <a href="<%= story_path(@story) %>"><span class="more">... more &rarr;</span></a>
+  <h2><%= story.title %></h2>
+  <%= render :partial => 'date_box',
+    :locals => { :story => story }%>
+  <%= markdown(story.extract) %>
+    <%= link_to '<span class="more">... more &rarr;</span>', [@section, story] %>
   <% if admin? %>
-    <%= link_to 'Show', @story %>
-    <%= link_to 'Edit', edit_story_path(@story) %>
-    <%= link_to 'Destroy', @story, :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Edit', [:edit, @section, story] %>
+    <%= link_to 'Destroy', [@section, story], :confirm => 'Are you sure?', :method => :delete %>
   <% end %>  
   </p>
 <% end %>

@@ -12,11 +12,12 @@ module ApplicationHelper
     breaking_story.title
   end
   
-  def selection_intro(section)
-    @selection ||= Story.find(:first,
-                              :conditions => ['section = ?', section],
+  def selection_intro(section_name)
+    section = Section.find_by_name(section_name)  # redundant???    
+    section.name
+    selection ||= section.stories.find(:first,
                               :order => 'publish_at DESC')
-    # @selection.intro
+    return selection.title unless selection.nil? # intro!
   end
   
   
@@ -27,8 +28,8 @@ module ApplicationHelper
 
   def current_section
     # there's got to be a better way to do this... TODO: fix this when I change the routing
-    unless params[:id].nil?
-      @current_section ||= Section.find(params[:id])
+    unless params[:section_id].nil?
+      @current_section ||= Section.find(params[:section_id])
     end
   end
 

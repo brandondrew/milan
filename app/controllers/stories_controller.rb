@@ -63,7 +63,7 @@ class StoriesController < ApplicationController
     respond_to do |format|
       if @story.save
         flash[:notice] = 'Story was successfully created.'
-        format.html { redirect_to(@story) }
+        format.html { redirect_to(@section, @story) }
         format.xml  { render :xml => @story, :status => :created, :location => @story }
       else
         format.html { render :action => "new" }
@@ -81,7 +81,7 @@ class StoriesController < ApplicationController
     respond_to do |format|
       if @story.update_attributes(params[:story])
         flash[:notice] = 'Story was successfully updated.'
-        format.html { redirect_to(@story) }
+        format.html { redirect_to(@section, @story) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -107,7 +107,9 @@ class StoriesController < ApplicationController
 
 
   def load_section
-    @post = Post.find(params[:post_id])
+    # FOR_SOME_STRANGE_REASON, this is not getting the section id if the URL is longer than sections/4
+    # if it is /sections/4/stories or /sections/4/stories/new etc. then it misses the id      ?#@&%$*!
+    @section = Section.find(params[:section_id])
   end
 
   
